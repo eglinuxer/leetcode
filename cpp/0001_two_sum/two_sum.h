@@ -10,7 +10,8 @@ public:
     virtual ~two_sum();
 
 public:
-    std::vector<int> get_two_sum_index(std::vector<int> &numbers, int target);
+    std::vector<int> get_two_sum_index1(std::vector<int> &numbers, int target);
+    std::vector<int> get_two_sum_index2(std::vector<int> &numbers, int target);
 };
 
 #endif

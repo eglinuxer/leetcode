@@ -9,7 +9,7 @@ two_sum::~two_sum() {
     std::cout << "析构函数执行了" << std::endl;
 }
 
-std::vector<int> two_sum::get_two_sum_index(std::vector<int> &numbers, int target) {
+std::vector<int> two_sum::get_two_sum_index1(std::vector<int> &numbers, int target) {
     std::unordered_map<int, int> m;
     std::vector<int> result;
 
@@ -23,6 +23,23 @@ std::vector<int> two_sum::get_two_sum_index(std::vector<int> &numbers, int targe
             result.push_back(m[numbers[i]]);
             result.push_back(i);
             break;
+        }
+    }
+
+    return result;
+}
+
+std::vector<int> two_sum::get_two_sum_index2(std::vector<int> &numbers, int target) {
+    std::vector<int> result;
+    int low = 0, high = numbers.size() - 1;
+
+    while(low < high) {
+        if(numbers[low] + numbers[high] == target) {
+            result.push_back(low);
+            result.push_back(high);
+            break;
+        } else {
+            numbers[low] + numbers[high] > target ? high-- : low++;
         }
     }
 
